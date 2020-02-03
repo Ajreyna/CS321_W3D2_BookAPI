@@ -11,6 +11,9 @@ namespace CS321_W3D2_BookAPI.Data
         // TODO: implement a DbSet<Author> property
         public DbSet<Author> Authors { get; set; }
 
+        //TODO: implement a DbSet<Publisher> property
+        public DbSet<Publisher> Publishers { get; set; }
+
         // This method runs once when the DbContext is first used.
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -37,6 +40,12 @@ namespace CS321_W3D2_BookAPI.Data
                new Book { Id = 2, Title = "Cannery Row", AuthorId = 1 },
                new Book { Id = 3, Title = "The Shining", AuthorId = 2 }
             );
+
+            modelBuilder.Entity<Publisher>().HasData(
+                new Publisher { Id = 1, Name = "Penguin", FoundedYear = 1724, CountryOfOrigin = "U.S.A.", HeadQuartersLocation = "Salem, MA ", AuthorId =1},
+                new Publisher { Id = 2, Name = "Concorde", FoundedYear = 1888, CountryOfOrigin = "Canada", HeadQuartersLocation = "London, UK", AuthorId=1 },
+                new Publisher { Id = 3, Name = "Harper-Collins", FoundedYear = 1902, CountryOfOrigin = "U.S.A.", HeadQuartersLocation = "New York, NY", AuthorId=2 }
+                );
 
         }
 
